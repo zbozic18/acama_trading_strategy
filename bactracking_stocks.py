@@ -29,7 +29,7 @@ class HistoryTrader:
     # This function returns top 10 stocks in the selection
     def get_top_performers(self):
         stocks = {}
-        top_10 = {}
+        top_stocks = {}
         for ticker in self.tickers:
             ticker = ticker[0]
             dividend = self.check_for_dividend(ticker)
@@ -46,11 +46,11 @@ class HistoryTrader:
 
         # Creates a dictionary with top 10 stocks
         for stock in stocks_sorted:
-            top_10[stock] = stocks_sorted[stock]
-            if len(top_10) == 31:
+            top_stocks[stock] = stocks_sorted[stock]
+            if len(top_stocks) == 31:
                 break
 
-        return top_10
+        return top_stocks
 
     @staticmethod
     def check_for_dividend(tick):

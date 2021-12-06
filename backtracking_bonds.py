@@ -5,7 +5,7 @@ import pandas as pd
 
 bonds_db = make_bonds()
 intrests = get_interest_rates()
-starting_date = '2015-12-01'
+starting_date = '2016-01-01'
 
 
 # The bond strategy is based on the Acama trading strategy manual
