@@ -48,7 +48,7 @@ class ClemTrader:
 # This function is used to read the database of stocks in the excel file.
 # The function returns a list of Stocks.
 def make_stocks():
-    ps = openpyxl.load_workbook('../../fml_trading/asset_data/stock_selection_acama.xlsx')
+    ps = openpyxl.load_workbook('../asset_data_management/asset_data/stock_selection_acama.xlsx')
     sheet1 = ps['Sheet1']
     print(sheet1.values)
     stocks = []

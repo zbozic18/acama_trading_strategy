@@ -54,7 +54,7 @@ class HistoryTrader:
 
     @staticmethod
     def check_for_dividend(tick):
-        df_stock = pd.read_csv(f'asset_data/ticker_data/{tick}')
+        df_stock = pd.read_csv(f'asset_data_management/asset_data/ticker_data/{tick}')
         dividend_indexes = []
         try:
             dividends = df_stock['Dividends'].to_list()
@@ -72,7 +72,7 @@ class HistoryTrader:
 # Finds the closing price for the set date and submitted ticker
 # If the ticker existed on that date, the func will return the closing price, otherwise it will be None
 def get_closing_price(date, ticker, dividend_index):
-    df_stock = pd.read_csv(f'asset_data/ticker_data/{ticker}')
+    df_stock = pd.read_csv(f'asset_data_management/asset_data/ticker_data/{ticker}')
     index = find_date(df_stock, date)
     if index is not None:
         if index <= dividend_index:

@@ -17,7 +17,7 @@ class Bond:
         self.maturity_date = change_year(self.issue_date, self.duration)
         self.date_of_purchase = None
         self.time_to_maturity = duration
-        self.price_at_purchase = self.face_value
+        self.price_at_purchase = self.calculate_price()
         self.remaining_coupon = self.get_remaining_coupon()
 
     def calculate_price(self, current_date=None):
@@ -25,6 +25,11 @@ class Bond:
             self.set_time_to_maturity(current_date)
         price = self.coupon_rate * ((1-(1/((1+self.interest_rate)**self.time_to_maturity)))/self.interest_rate) + \
                 self.face_value/((1+self.interest_rate)**self.time_to_maturity)
+        if price < 5:
+            self.interest_rate = self.interest_rate / 100
+        price = self.coupon_rate * (
+                    (1 - (1 / ((1 + self.interest_rate) ** self.time_to_maturity))) / self.interest_rate) + \
+                self.face_value / ((1 + self.interest_rate) ** self.time_to_maturity)
         return price
 
     def set_date_of_purchase(self, date_of_purchase):
@@ -32,7 +37,7 @@ class Bond:
 
     def set_interest_rate(self, interest_rates, date):
         try:
-            self.interest_rate = float(interest_rates[date])
+            self.interest_rate = float(interest_rates[date]) / 100
         except Exception as e:
             print(e)
 

@@ -16,7 +16,7 @@ def bond_csv_to_dict(tag):
 
     # The bellow with statement opens the xml file and assigns the data to the bs_data in a BeautifulSoup format
     # The bs_data is used to make a list of dates and a list of selected_bonds using the tag variable
-    with open('../../fml_trading/asset_data/DailyTreasuryYieldCurveRateData.xml', 'r') as f:
+    with open('asset_data/DailyTreasuryYieldCurveRateData.xml', 'r') as f:
         data = f.read()
     bs_data = BeautifulSoup(data, 'xml')
     bs_dates = bs_data.find_all('d:NEW_DATE')
@@ -56,7 +56,7 @@ def bond_csv_to_dict(tag):
 # This function reads the historical interest dates from the csv file
 # The data starts on the 1954-07-01
 def get_interest_rates():
-    with open('../../fml_trading/asset_data/fed-funds-rate-historical-chart.csv', 'r') as file:
+    with open('asset_data_management/asset_data/fed-funds-rate-historical-chart.csv', 'r') as file:
         interest_data = csv.reader(file)
         rates = {}
         x = 0

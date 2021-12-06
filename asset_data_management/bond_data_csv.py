@@ -1,9 +1,9 @@
 import csv
-from tools import make_date_time, find_str_month, get_year
+from asset_data_management.tools import make_date_time, find_str_month, get_year
 
 
 def get_10_y_bond_history():
-    with open('../../fml_trading/asset_data/histoical_bond_coupons.csv', 'r') as file:
+    with open('asset_data_management/asset_data/histoical_bond_coupons.csv', 'r') as file:
         data = csv.reader(file)
         bond_data = {}
 
